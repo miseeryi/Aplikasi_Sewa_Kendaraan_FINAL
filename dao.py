@@ -150,61 +150,60 @@ def admin_login(username, password):
 
 
 # ========== PELANGGAN ==========
-# def pelanggan_all():
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("SELECT id, nama, telp FROM pelanggan ORDER BY id DESC")
-#     rows = cur.fetchall()
-#     conn.close()
-#     return rows
+def pelanggan_all():
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("SELECT id, nama, telp FROM pelanggan ORDER BY id DESC")
+    rows = cur.fetchall()
+    conn.close()
+    return rows
 
-# def pelanggan_insert(nama, telp):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("INSERT INTO pelanggan(nama, telp) VALUES(?,?)", (nama, telp))
-#     conn.commit()
-#     conn.close()
+def pelanggan_insert(nama, telp):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("INSERT INTO pelanggan(nama, telp) VALUES(?,?)", (nama, telp))
+    conn.commit()
+    conn.close()
 
-# def pelanggan_update(id_, nama, telp):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("UPDATE pelanggan SET nama=?, telp=? WHERE id=?", (nama, telp, id_))
-#     conn.commit()
-#     conn.close()
+def pelanggan_update(id_, nama, telp):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("UPDATE pelanggan SET nama=?, telp=? WHERE id=?", (nama, telp, id_))
+    conn.commit()
+    conn.close()
 
-# def pelanggan_delete(id_):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("DELETE FROM pelanggan WHERE id=?", (id_,))
-#     conn.commit()
-#     conn.close()
+def pelanggan_delete(id_):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM pelanggan WHERE id=?", (id_,))
+    conn.commit()
+    conn.close()
 
 
-# # ========== SEWA ==========
-# def sewa_all_join():
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("""
-#         SELECT s.id, s.tanggal, s.durasi, s.total,
-#                k.tipe, k.plat, k.merk,
-#                p.nama, p.telp
-#         FROM sewa s
-#         JOIN kendaraan k ON k.id = s.kendaraan_id
-#         JOIN pelanggan p ON p.id = s.pelanggan_id
-#         ORDER BY s.id DESC
-#     """)
-#     rows = cur.fetchall()
-#     conn.close()
-#     return rows
+# ========== SEWA ==========
+def sewa_all_join():
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT s.id, s.tanggal, s.durasi, s.total,
+               k.tipe, k.plat, k.merk,
+               p.nama, p.telp
+        FROM sewa s
+        JOIN kendaraan k ON k.id = s.kendaraan_id
+        JOIN pelanggan p ON p.id = s.pelanggan_id
+        ORDER BY s.id DESC
+    """)
+    rows = cur.fetchall()
+    conn.close()
+    return rows
 
-# def sewa_insert(kendaraan_id, pelanggan_id, tanggal, durasi, total):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute(
-#         "INSERT INTO sewa(kendaraan_id, pelanggan_id, tanggal, durasi, total) VALUES(?,?,?,?,?)",
-#         (kendaraan_id, pelanggan_id, tanggal, durasi, total)
-#     )
-#     conn.commit()
-#     conn.close()
+def sewa_insert(kendaraan_id, pelanggan_id, tanggal, durasi, total):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute(
+        "INSERT INTO sewa(kendaraan_id, pelanggan_id, tanggal, durasi, total) VALUES(?,?,?,?,?)",
+        (kendaraan_id, pelanggan_id, tanggal, durasi, total)
+    )
+    conn.commit()
+    conn.close()
 
-   
