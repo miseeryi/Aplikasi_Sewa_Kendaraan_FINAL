@@ -11,11 +11,9 @@ class Kendaraan(ABC):
     def tipe(self) -> str:
         pass
 
-    # def hitung_biaya(self, durasi_hari: int) -> int:
-    #     # default
-    #     return self.tarif * durasi_hari
+    def hitung_biaya(self, durasi_hari: int) -> int:
+        # default
+        return self.tarif * durasi_hari
 
-
-#alfa
 
 
