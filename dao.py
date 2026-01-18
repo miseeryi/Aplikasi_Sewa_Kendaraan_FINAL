@@ -131,22 +131,23 @@ def kendaraan_insert(tipe, plat, merk, tarif):
     conn.commit()
     conn.close()
 
-# def kendaraan_update(id_, tipe, plat, merk, tarif):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute(
-#         "UPDATE kendaraan SET tipe=?, plat=?, merk=?, tarif=? WHERE id=?",
-#         (tipe, plat, merk, tarif, id_)
-#     )
-#     conn.commit()
-#     conn.close()
+def kendaraan_update(id_, tipe, plat, merk, tarif):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE kendaraan SET tipe=?, plat=?, merk=?, tarif=? WHERE id=?",
+        (tipe, plat, merk, tarif, id_)
+    )
+    conn.commit()
+    conn.close()
 
-# def kendaraan_delete(id_):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("DELETE FROM kendaraan WHERE id=?", (id_,))
-#     conn.commit()
-#     conn.close()
+
+def kendaraan_delete(id_):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM kendaraan WHERE id=?", (id_,))
+    conn.commit()
+    conn.close()
 
 
 # ========== PELANGGAN ==========
