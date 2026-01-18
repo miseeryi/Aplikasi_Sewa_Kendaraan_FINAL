@@ -112,24 +112,24 @@ def admin_login(username, password):
 
     return row is not None
 
-# ========== KENDARAAN ==========
-# def kendaraan_all():
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute("SELECT id, tipe, plat, merk, tarif FROM kendaraan ORDER BY id DESC")
-#     rows = cur.fetchall()
-#     conn.close()
-#     return rows
+def kendaraan_all():
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("SELECT id, tipe, plat, merk, tarif FROM kendaraan ORDER BY id DESC")
+    rows = cur.fetchall()
+    conn.close()
+    return rows
 
-# def kendaraan_insert(tipe, plat, merk, tarif):
-#     conn = connect()
-#     cur = conn.cursor()
-#     cur.execute(
-#         "INSERT INTO kendaraan(tipe, plat, merk, tarif) VALUES(?,?,?,?)",
-#         (tipe, plat, merk, tarif)
-#     )
-#     conn.commit()
-#     conn.close()
+
+def kendaraan_insert(tipe, plat, merk, tarif):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute(
+        "INSERT INTO kendaraan(tipe, plat, merk, tarif) VALUES(?,?,?,?)",
+        (tipe, plat, merk, tarif)
+    )
+    conn.commit()
+    conn.close()
 
 # def kendaraan_update(id_, tipe, plat, merk, tarif):
 #     conn = connect()
