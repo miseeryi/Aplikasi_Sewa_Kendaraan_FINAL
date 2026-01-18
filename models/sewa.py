@@ -19,18 +19,20 @@ class Sewa:
         self.durasi = durasi
         self.total = total
 
-    # def to_struk(self) -> str:
-    #     return (
-    #         "========= STRUK SEWA KENDARAAN =========\n"
-    #         f"ID Transaksi : {self.id}\n"
-    #         f"Tanggal      : {self.tanggal}\n"
-    #         f"Pelanggan    : {self.pelanggan.nama} | {self.pelanggan.telp}\n"
-    #         f"Kendaraan    : {self.kendaraan.tipe()} | {self.kendaraan.plat} | {self.kendaraan.merk}\n"
-    #         f"Durasi       : {self.durasi} hari\n"
-    #         f"Total Biaya  : Rp {self.total}\n"
-    #         "=======================================\n"
-    #         "Terima kasih!\n"
-    #     )
+       def to_struk(self) -> str:
+        return (
+            "========= STRUK SEWA KENDARAAN =========\n"
+            f"ID Transaksi : {self.id}\n"
+            f"Tanggal      : {self.tanggal}\n"
+            f"Pelanggan    : {self.pelanggan.nama} | {self.pelanggan.telp}\n"
+            f"Kendaraan    : {self.kendaraan.tipe()} | {self.kendaraan.plat} | {self.kendaraan.merk}\n"
+            f"Durasi       : {self.durasi} hari\n"
+            f"Total Biaya  : Rp {self.total}\n"
+            "=======================================\n"
+       
+     "Terima kasih!\n"
+        )
+
 
 
 

@@ -171,39 +171,42 @@ k_scroll = ttk.Scrollbar(frame_k_table, orient="vertical", command=k_tree.yview)
 k_tree.configure(yscrollcommand=k_scroll.set)
 k_scroll.pack(side="right", fill="y")
 
-# def k_refresh():
-#     for i in k_tree.get_children():
-#         k_tree.delete(i)
-#     for row in fetch_all_kendaraan():
-#         k_tree.insert("", "end", values=row)
+def k_refresh():
+    for i in k_tree.get_children():
+        k_tree.delete(i)
+    for row in fetch_all_kendaraan():
+        k_tree.insert("", "end", values=row)
 
-# def k_clear():
-#     k_id_var.set("")
-#     k_tipe_var.set("MOBIL")
-#     k_plat_var.set("")
-#     k_merk_var.set("")
-#     k_tarif_var.set("")
+def k_clear():
+    k_id_var.set("")
+    k_tipe_var.set("MOBIL")
+    k_plat_var.set("")
+    k_merk_var.set("")
+    k_tarif_var.set("")
 
-# def k_add():
-#     try:
-#         tipe = k_tipe_var.get().strip()
-#         plat = k_plat_var.get().strip()
-#         merk = k_merk_var.get().strip()
-#         tarif = int(k_tarif_var.get().strip())
+def k_add():
+    try:
+        tipe = k_tipe_var.get().strip()
+        plat = k_plat_var.get().strip()
+        merk = k_merk_var.get().strip()
+        tarif = int(k_tarif_var.get().strip())
 
-#         if not plat or not merk:
-#             raise ValueError("Plat dan Merk wajib diisi.")
-#         if tarif <= 0:
-#             raise ValueError("Tarif harus > 0.")
 
-#         dao.kendaraan_insert(tipe, plat, merk, tarif)
+        if not plat or not merk:
+            raise ValueError("Plat dan Merk wajib diisi.")
+        if tarif <= 0:
+            raise ValueError("Tarif harus > 0.")
 
-#         k_refresh()
-#         k_clear()
-#         s_reload_combo()  # auto update combobox transaksi
-#         messagebox.showinfo("Sukses", "Kendaraan berhasil ditambahkan.")
-#     except Exception as e:
-#         messagebox.showerror("Error", str(e))
+
+        dao.kendaraan_insert(tipe, plat, merk, tarif)
+
+
+        k_refresh()
+        k_clear()
+        s_reload_combo()  # auto update combobox transaksi
+        messagebox.showinfo("Sukses", "Kendaraan berhasil ditambahkan.")
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
 
 
 # def k_add():
