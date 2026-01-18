@@ -91,22 +91,26 @@
 #     conn.commit()
 #     conn.close()
 
-# from database import connect, hash_password
+from database import connect, hash_password
 
-# def admin_login(username, password):
-#     conn = connect()
-#     cur = conn.cursor()
 
-#     pwd_hash = hash_password(password)
+def admin_login(username, password):
+    conn = connect()
+    cur = conn.cursor()
 
-#     cur.execute(
-#         "SELECT id FROM admin WHERE username=? AND password_hash=?",
-#         (username, pwd_hash)
-#     )
-#     row = cur.fetchone()
-#     conn.close()
 
-#     return row is not None
+    pwd_hash = hash_password(password)
+
+
+    cur.execute(
+        "SELECT id FROM admin WHERE username=? AND password_hash=?",
+        (username, pwd_hash)
+    )
+    row = cur.fetchone()
+    conn.close()
+
+
+    return row is not None
 
 # ========== KENDARAAN ==========
 # def kendaraan_all():
